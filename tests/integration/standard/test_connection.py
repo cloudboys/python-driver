@@ -412,10 +412,10 @@ class AsyncoreConnectionTests(ConnectionTests, unittest.TestCase):
         cassandra.io.asyncorereactor._global_loop._cleanup()
         cassandra.io.asyncorereactor._global_loop = None
 
-        clusterC1 = Cluster(connection_class=AsyncoreConnection)
+        clusterC1 = Cluster(connection_class=C1)
         clusterC1.connect(wait_for_all_pools=True)
 
-        clusterC2 = Cluster(connection_class=AsyncoreConnection)
+        clusterC2 = Cluster(connection_class=C2)
         clusterC2.connect(wait_for_all_pools=True)
         self.addCleanup(clusterC1.shutdown)
         self.addCleanup(clusterC2.shutdown)
